@@ -1,0 +1,62 @@
+{
+  "VAS_SALA": {
+    "Primary": {
+      "Grade 1": 304960000,
+      "Grade 2": 331380000,
+      "Grade 3": 346040000,
+      "Grade 4": 368080000,
+      "Grade 5": 390120000
+    },
+    "Secondary": {
+      "Grade 6": 401600000,
+      "Grade 7": 435160000,
+      "Grade 8": 447300000,
+      "Grade 9": 473760000
+    },
+    "HighSchool": {
+      "Grade 10": 497080000,
+      "Grade 11": 557960000,
+      "Grade 12": 585592000
+    },
+    "OneTimeFees": {
+      "EnrollmentFee": {
+        "Primary": 12000000,
+        "Secondary": 12000000,
+        "HighSchool": 12000000
+      },
+      "RegistrationFee": {
+        "Primary": 3000000,
+        "Secondary": 3000000,
+        "HighSchool": 3000000
+      }
+    },
+    "AnnualFees": {
+      "MealFee": {
+        "Primary": 30866000,
+        "Secondary": 37772000,
+        "HighSchool": 37772000
+      }
+    },
+    "OtherFees": {
+      "BooksAndMaterials": {
+        "Grade 1": 2895000,
+        "Grade 2": 2895000,
+        "Grade 3": 2895000,
+        "Grade 4": 2895000,
+        "Grade 5": 2895000,
+        "Grade 6": 2895000,
+        "Grade 7": 1481000,
+        "Grade 8": 4443000,
+        "Grade 9": 4023000,
+        "Grade 10": 24138000,
+        "Grade 11": 24232000,
+        "Grade 12": 31984000
+      },
+      "Stationery": {
+        "Primary": 13000,
+        "Secondary": 13000,
+        "HighSchool": 13000
+      }
+    }
+  }
+}
