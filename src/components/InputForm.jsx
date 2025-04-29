@@ -1,16 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import tuitionVAS from '../data/tuition_vas_sala.json';
 
 function InputForm({ onSubmit }) {
   const [formData, setFormData] = useState({
-    currentAsset: '',
-    annualIncome: '',
-    annualLivingCost: '',
-    livingInflation: '',
-    expectedCAGR: '',
-    tuitionInflation: '',
-    selectedSchool: '',
+    currentAsset: '6', // tỷ VND
+    annualIncome: '2.5', // tỷ VND
+    annualLivingCost: '1', // tỷ VND
+    livingInflation: '4', // %
+    expectedCAGR: '12', // %
+    tuitionInflation: '8', // %
+    selectedSchool: 'VAS_SALA',
   });
+
+  useEffect(() => {
+    if (formData.selectedSchool === 'VAS_SALA') {
+      setTuitionData(tuitionVAS);
+    }
+  }, [formData.selectedSchool]);
 
   const [tuitionData, setTuitionData] = useState(null);
 
@@ -34,83 +40,83 @@ function InputForm({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4 bg-white p-6 rounded-lg shadow-md">
-      
+
       <label className="flex flex-col">
-  Tài sản ròng hiện tại (tỷ VND):
-  <input
-    type="number"
-    name="currentAsset"
-    value={formData.currentAsset}
-    onChange={handleChange}
-    required
-    className="border p-2 rounded mt-1"
-  />
-</label>
+        Tài sản ròng hiện tại (tỷ VND):
+        <input
+          type="number"
+          name="currentAsset"
+          value={formData.currentAsset}
+          onChange={handleChange}
+          required
+          className="border p-2 rounded mt-1"
+        />
+      </label>
 
-<label className="flex flex-col">
-  Thu nhập ròng hàng năm (tỷ VND):
-  <input
-    type="number"
-    name="annualIncome"
-    value={formData.annualIncome}
-    onChange={handleChange}
-    required
-    className="border p-2 rounded mt-1"
-  />
-</label>
+      <label className="flex flex-col">
+        Thu nhập ròng hàng năm (tỷ VND):
+        <input
+          type="number"
+          name="annualIncome"
+          value={formData.annualIncome}
+          onChange={handleChange}
+          required
+          className="border p-2 rounded mt-1"
+        />
+      </label>
 
-<label className="flex flex-col">
-  Chi tiêu sinh hoạt hàng năm (tỷ VND):
-  <input
-    type="number"
-    name="annualLivingCost"
-    value={formData.annualLivingCost}
-    onChange={handleChange}
-    required
-    className="border p-2 rounded mt-1"
-  />
-</label>
+      <label className="flex flex-col">
+        Chi tiêu sinh hoạt hàng năm (tỷ VND):
+        <input
+          type="number"
+          name="annualLivingCost"
+          value={formData.annualLivingCost}
+          onChange={handleChange}
+          required
+          className="border p-2 rounded mt-1"
+        />
+      </label>
 
-<label className="flex flex-col">
-  Lạm phát chi tiêu sinh hoạt (%/năm):
-  <input
-    type="number"
-    step="0.1"
-    name="livingInflation"
-    value={formData.livingInflation}
-    onChange={handleChange}
-    required
-    className="border p-2 rounded mt-1"
-  />
-</label>
+      <label className="flex flex-col">
+        Lạm phát chi tiêu sinh hoạt (%/năm):
+        <input
+          type="number"
+          step="0.1"
+          name="livingInflation"
+          value={formData.livingInflation}
+          onChange={handleChange}
+          required
+          className="border p-2 rounded mt-1"
+        />
+      </label>
 
-<label className="flex flex-col">
-  CAGR kỳ vọng cho đầu tư (%/năm):
-  <input
-    type="number"
-    step="0.1"
-    name="expectedCAGR"
-    value={formData.expectedCAGR}
-    onChange={handleChange}
-    required
-    className="border p-2 rounded mt-1"
-  />
-</label>
+      <label className="flex flex-col">
+        CAGR kỳ vọng cho đầu tư (%/năm):
+        <input
+          type="number"
+          step="0.1"
+          name="expectedCAGR"
+          value={formData.expectedCAGR}
+          onChange={handleChange}
+          required
+          className="border p-2 rounded mt-1"
+        />
+      </label>
 
-<label className="flex flex-col">
-  Lạm phát học phí (%/năm):
-  <input
-    type="number"
-    step="0.1"
-    name="tuitionInflation"
-    value={formData.tuitionInflation}
-    onChange={handleChange}
-    required
-    className="border p-2 rounded mt-1"
-  />
-</label>
+      <label className="flex flex-col">
+        Lạm phát học phí (%/năm):
+        <input
+          type="number"
+          step="0.1"
+          name="tuitionInflation"
+          value={formData.tuitionInflation}
+          onChange={handleChange}
+          required
+          className="border p-2 rounded mt-1"
+        />
+      </label>
 
-<label className="flex flex-col">
+      <label className="flex flex-col">
         Chọn trường quốc tế:
         <select
           name="selectedSchool"
